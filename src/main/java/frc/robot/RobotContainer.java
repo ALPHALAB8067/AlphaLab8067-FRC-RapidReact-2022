@@ -4,13 +4,10 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
-
-import org.opencv.osgi.OpenCVInterface;
-
 import edu.wpi.first.wpilibj.Joystick;
-import frc.robot.commands.CommandeAutonome;
-import frc.robot.commands.ConduiteArcadeAvecManette;
+import frc.robot.commands.Groupes.LancerBalle;
+import frc.robot.commands.Individuelles.CommandeAutonome;
+import frc.robot.commands.Individuelles.ConduiteArcadeAvecManette;
 import frc.robot.subsystems.BasePilotable;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Convoyeur;
@@ -21,18 +18,17 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 public class RobotContainer {
-  
-  //Création des membres
+
   private final BasePilotable m_basePilotable;
   private final ConduiteArcadeAvecManette m_conduiteArcadeAvecManette;
   private final Joystick m_manettePilote;
 
   private final Convoyeur m_convoyeur;
-
   private final Shooter m_shooter;
+  private final LancerBalle m_lancerBalle;
+  private final JoystickButton m_bouton1;
 
   private final Ramasseur m_ramasseur;
-
   private final RamasseurRoues m_ramasseurRoues;
 
   private final Climber m_climber;
@@ -46,8 +42,9 @@ public class RobotContainer {
     m_basePilotable.setDefaultCommand(m_conduiteArcadeAvecManette);
 
     m_convoyeur = new Convoyeur();
-
     m_shooter = new Shooter();
+    m_lancerBalle = new LancerBalle(m_shooter, m_convoyeur);
+    m_bouton1 = new JoystickButton(m_manettePilote, Constants.NUMERO_BOUTON_1);
 
     m_ramasseur = new Ramasseur();
     
@@ -61,7 +58,7 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    
+    m_bouton1.whenPressed(m_lancerBalle);
   }
 
   public Command getAutonomousCommand() {
