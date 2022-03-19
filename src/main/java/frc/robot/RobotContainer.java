@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 public class RobotContainer {
+  //Création des membres
 
   private final BasePilotable m_basePilotable;
   private final ConduiteArcadeAvecManette m_conduiteArcadeAvecManette;
