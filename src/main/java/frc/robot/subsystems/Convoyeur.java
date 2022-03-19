@@ -31,7 +31,7 @@ public class Convoyeur extends SubsystemBase {
     m_moteurConvoyeur.set(-vitesse);
   }
 
-  public boolean ballon() {
+  public boolean detecterBallon() {
     return m_limitSwitchConvoyeur.get();
   }
 
