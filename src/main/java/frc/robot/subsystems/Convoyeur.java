@@ -16,7 +16,7 @@ public class Convoyeur extends SubsystemBase {
   
   public Convoyeur() {
     m_moteurConvoyeur = new Spark(Constants.PORT_MOTEUR_CONVOYEUR);
-    m_limitSwitchConvoyeur = new DigitalInput(0);
+    m_limitSwitchConvoyeur = new DigitalInput(1);
   }
 
   @Override
