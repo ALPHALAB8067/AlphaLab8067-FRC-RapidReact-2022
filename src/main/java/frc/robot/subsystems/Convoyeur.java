@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -11,9 +12,11 @@ import frc.robot.Constants;
 public class Convoyeur extends SubsystemBase {
 
   private final Spark m_moteurConvoyeur;
+  private final DigitalInput m_limitSwitchConvoyeur;
   
   public Convoyeur() {
     m_moteurConvoyeur = new Spark(Constants.PORT_MOTEUR_CONVOYEUR);
+    m_limitSwitchConvoyeur = new DigitalInput(0);
   }
 
   @Override
@@ -26,6 +29,10 @@ public class Convoyeur extends SubsystemBase {
 
   public void reculerConvoyeur(double vitesse) {
     m_moteurConvoyeur.set(-vitesse);
+  }
+
+  public boolean ballon() {
+    return m_limitSwitchConvoyeur.get();
   }
 
   public void stop() {
