@@ -1,0 +1,15 @@
+{
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/BasePilotable": "Subsystem",
+      "/LiveWindow/Climber": "Subsystem",
+      "/LiveWindow/Convoyeur": "Subsystem",
+      "/LiveWindow/Ramasseur": "Subsystem",
+      "/LiveWindow/RamasseurRoues": "Subsystem",
+      "/LiveWindow/Shooter": "Subsystem",
+      "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
+      "/LiveWindow/Ungrouped/Scheduler": "Scheduler"
+    }
+  }
+}
