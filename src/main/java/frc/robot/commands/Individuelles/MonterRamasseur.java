@@ -8,17 +8,16 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Ramasseur;
 
 public class MonterRamasseur extends CommandBase {
-
   private final Ramasseur m_ramasseur;
 
   public MonterRamasseur(Ramasseur ramasseur) {
     m_ramasseur = ramasseur;
-    addRequirements(m_ramasseur);
+    addRequirements(ramasseur);
   }
 
   @Override
   public void initialize() {
-    m_ramasseur.monterRamasseur(0.25);
+    m_ramasseur.monterRamasseur(0.35);
   }
 
   @Override
@@ -31,6 +30,6 @@ public class MonterRamasseur extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return false;
+    return m_ramasseur.limiteMonterRamasseur();
   }
 }

@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.commands.Groupes.LancerBalle;
 import frc.robot.commands.Individuelles.CommandeAutonome;
 import frc.robot.commands.Individuelles.ConduiteArcadeAvecManette;
+import frc.robot.commands.Individuelles.MonterClimber;
+import frc.robot.commands.Individuelles.MonterRamasseur;
 import frc.robot.subsystems.BasePilotable;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Convoyeur;
@@ -27,9 +29,11 @@ public class RobotContainer {
   private final Shooter m_shooter;
   private final LancerBalle m_lancerBalle;
   private final JoystickButton m_bouton1;
+  private final JoystickButton m_bouton2;
 
   private final Ramasseur m_ramasseur;
   private final RamasseurRoues m_ramasseurRoues;
+  private final MonterRamasseur m_monterRamasseur;
 
   private final Climber m_climber;
 
@@ -45,8 +49,10 @@ public class RobotContainer {
     m_shooter = new Shooter();
     m_lancerBalle = new LancerBalle(m_shooter, m_convoyeur);
     m_bouton1 = new JoystickButton(m_manettePilote, Constants.NUMERO_BOUTON_1);
+    m_bouton2 = new JoystickButton(m_manettePilote, Constants.NUMERO_BOUTON_2);
 
     m_ramasseur = new Ramasseur();
+    m_monterRamasseur = new MonterRamasseur(m_ramasseur);
     
     m_ramasseurRoues = new RamasseurRoues();
 
@@ -59,6 +65,7 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     m_bouton1.whenPressed(m_lancerBalle);
+    m_bouton2.whenHeld(m_monterRamasseur);
   }
 
   public Command getAutonomousCommand() {

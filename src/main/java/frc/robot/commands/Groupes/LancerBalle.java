@@ -23,7 +23,7 @@ public class LancerBalle extends ParallelRaceGroup {
     m_convoyeur = convoyeur;
     m_activerShooter = new ActiverShooter(m_shooter);
     m_avancerConvoyeur = new AvancerConvoyeur(m_convoyeur, m_shooter);
-    
-    addCommands(m_activerShooter, m_avancerConvoyeur);
+    //erreur si 2 commandes paralel depende du meme Sous System
+   // addCommands(m_activerShooter, m_avancerConvoyeur);
   }
 }
