@@ -14,10 +14,12 @@ import frc.robot.Constants;
 
 public class BasePilotable extends SubsystemBase {
   
-  WPI_TalonSRX moteurGauche1;
-  WPI_VictorSPX moteurGauche2;
-  WPI_TalonSRX moteurDroite1;
-  WPI_VictorSPX moteurDroite2;
+  private final WPI_TalonSRX moteurGauche1;
+  private final WPI_VictorSPX moteurGauche2;
+  private final WPI_TalonSRX moteurDroite1;
+  private final WPI_VictorSPX moteurDroite2;
+  
+   private static AHRS gyro = new AHRS(SPI.Port.kMXP);
 
   private final DifferentialDrive chassisBasePilotable;
 
