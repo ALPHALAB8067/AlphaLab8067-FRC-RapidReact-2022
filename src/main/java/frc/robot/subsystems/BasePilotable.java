@@ -51,6 +51,13 @@ public class BasePilotable extends SubsystemBase {
     chassisBasePilotable.arcadeDrive(manette_axeLY_AvantArriere, manette_axeLX_Rotation);
   }
 
+  //Ajout de conduite avec Tank pour mode autonome
+   public void conduiteTankAvecManette( double manette_axeLY_coteGauche, double  manette_axeRX_coteDroite) {
+    m_chassisBasePilotable.arcadeDrive(manette_axeLY_coteGauche, manette_axeRX_coteDroite);
+  }
+
+  
+  
   public void stop() {
     chassisBasePilotable.stopMotor();
   }
