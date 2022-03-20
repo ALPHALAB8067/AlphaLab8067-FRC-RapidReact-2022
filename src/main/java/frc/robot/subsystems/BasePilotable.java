@@ -43,6 +43,8 @@ public class BasePilotable extends SubsystemBase {
   @Override
   public void periodic() {
     
+      SmartDashboard.putNumber("Position actuelle Gyro: ", gyro.getAngle());
+    
   }
 
   public void deplacementAutonome(double vitesseAvantArriere, double vitesseRotation) {
